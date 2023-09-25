@@ -111,6 +111,7 @@ ORDER BY customer
 SELECT DISTINCT customer, item_purchased
 FROM item_order
 WHERE item_order = 1
+ORDER BY customer, item_purchased
 ```
 
 #### Explanation:
@@ -120,5 +121,34 @@ WHERE item_order = 1
    	- **ORDER BY**: order the rows within each partition by `order_date` in ascending order
 - **SELECT DISTINCT** & **WHERE**: Select unique `customer_id` and `product_name`, which were renamed to `customer` and `item_purchased` in the above CTE, which meet the criteria in the WHERE clause: item_order = 1
 
+  #### Answer:
+| customer| item_purchased |
+|---------|----------------|
+|   A     |      curry     |
+|   A     |      sushi     |
+|   B     |      curry     |
+|   C     |      ramen     |
 
+- Customer A visited the restaurant the first time on 2021-01-01 and ordered 2 dishes which are curry and sushi. Since since the `order_date` does not have a timestamp, we can't know which dish was ordered first when he/she coming to the restaurant. Therefore, I keep both the dishes as the first items ordered
+- Customer A ordered 2 dishes as the first items: curry & sushi
+- Customer B's first item ordered is curry
+- Customer C's first item ordered is ramen
+
+***
+
+**4. What is the most purchased item on the menu and how many times was it purchased by all customers?**
+
+```  
+SELECT product_name AS item
+	,COUNT(product_name) AS item_count
+FROM join_sales_menu
+GROUP BY product_name
+ORDER BY item_count DESC
+LIMIT 1
+```
+
+#### Explanation:
+- **GROUP BY**: Group the product by name by using `product_name` column
+- **COUNT**: Count the number of products were purchased by using `product_name` and renamed to item_count by using AS clause
+- **ORDER BY**: Order the result by `item_count` column in descending order and just take the 1st result - highest number of purchased items - appears by using **LIMIT**
 
