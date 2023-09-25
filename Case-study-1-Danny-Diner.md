@@ -56,11 +56,11 @@ ORDER BY customer
 - **SUM**: Calculate the total amount that each customer spent
 
 #### Answer:
-| customer | total_spend|
+|customer |total_spend|
 |----------|------------|
 |A|76|
 |B|74|
-|    C     |	36      |
+|C|36|
 
 - Customer A spent the most out of 3 customers, followed by customer B, with both of them spending twice as much as customer C.
 - Customer A spent $76
@@ -187,4 +187,36 @@ WHERE ranking = 1
 - **WHERE ranking = 1**: Select the columns from the get_data CTE which meet the criteria of the WHERE clause: ranking = 1
 
 #### Answer:
+|customer|item|pop_item_count|
+|-----|------|-----|
+|A|ramen|3|
+|B|ramen|2|
+|B|curry|2|
+|B|sushi|2|
+|C|ramen|3|
+
+- Customer A & C' favored item is ramen with 3 order times for both
+- Customer B enjoyed all the food on the item. Each item was ordered 2 times
+
+***
+
+**6. Which item was purchased first by the customer after they became a member?**
+
+```
+WITH mem_date AS
+  (SELECT dannys_diner.sales.customer_id AS customer
+   			,dannys_diner.sales.product_id
+   			,DENSE_RANK() OVER(PARTITION BY dannys_diner.sales.customer_id ORDER BY order_date) AS ranking
+  FROM dannys_diner.sales
+  LEFT JOIN dannys_diner.members
+    ON dannys_diner.sales.customer_id = dannys_diner.members.customer_id
+  WHERE order_date >= join_date)
+
+SELECT customer, product_name
+FROM mem_date
+LEFT JOIN dannys_diner.menu
+	ON mem_date.product_id = dannys_diner.menu.product_id
+WHERE ranking = 1
+ORDER BY customer
+```
 
