@@ -149,6 +149,10 @@ LIMIT 1
 
 #### Explanation:
 - **GROUP BY**: Group the product by name by using `product_name` column
-- **COUNT**: Count the number of products were purchased by using `product_name` and renamed to item_count by using AS clause
-- **ORDER BY**: Order the result by `item_count` column in descending order and just take the 1st result - highest number of purchased items - appears by using **LIMIT**
+- **COUNT**: Count the number of products were purchased by using `product_name` and renamed to `item_count` by using AS clause
+- **ORDER BY**: Order the result on the `item_count` column in descending order and just take the 1st result - highest number of purchased items - appears by using **LIMIT**
 
+#### Answer:
+|item|	item_count|
+|---|-------------|
+|ramen|	8|
