@@ -49,9 +49,11 @@ ORDER BY customer
 - **SUM**: calculate the total amount that each customer spent
 
 ### ANSWERS
-|customer|	total_spend
-|A|	76
-|B|	74
-|C|	36
+| customer | total_spend|
+|----------|------------|
+|    A     |	76      |
+|    B     |	74      |
+|    C     |	36      |
+
 
 
