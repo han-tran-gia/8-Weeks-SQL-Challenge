@@ -35,8 +35,10 @@ WITH join_sales_menu AS
 
 <img src="https://github.com/han-tran-gia/8-weeks-sql-challenge/assets/144699083/fb14f03a-8a17-4837-ae5c-c956d12c1d30"  alt="image" width="956">
 
+***
 
 **1. What is the total amount each customer spent at the restaurant?**
+
 ```
 SELECT customer_id AS customer
 	,SUM(price) AS total_spend
@@ -44,9 +46,10 @@ FROM join_sales_menu
 GROUP BY customer_id
 ORDER BY customer
 ```
+
 #### Explanation:
-- **GROUP BY**: group the aggregated result by `customer_id`
-- **SUM**: calculate the total amount that each customer spent
+- **GROUP BY**: Group the aggregated result by `customer_id`
+- **SUM**: Calculate the total amount that each customer spent
 
 #### Answer:
 | customer | total_spend|
@@ -60,13 +63,58 @@ ORDER BY customer
 - Customer B spent $74
 - Customer C spent $36
 
+***
+
 **2. How many days has each customer visited the restaurant?**
+
 ```
 SELECT customer_id AS customer
-		,COUNT(DISTINCT order_date) AS visit_days
+	,COUNT(DISTINCT order_date) AS visit_days
 FROM dannys_diner.sales
 GROUP BY customer_id
 ORDER BY customer
 ```
+
 #### Explanation:
+- **COUNT (DISTINCT order_date)**: Count unique date that each customer visit the restaurant
+  - Reason: I used DISTINCT in order to prevent the possibility of duplicate dates in the dataset but the question is asking the number of day each customer comes to the restaurant.
+  - For example, customer A was recorded visiting the restaurant 2 times on 2021-01-01 and made purchases of 2 products respectively.
+ 
+#### Answer:
+| customer | visit_days |
+|----------|------------|
+|    A     |     4      |
+|    B	   |     6      |
+|    C     |     2      |
+
+- Customer B visited the restaurant the most and then is customer A, final is customer B
+- Customer A: visited 4 days
+- Customer B: visited 6 days
+- Customer C: visited 2 days
+
+***
+
+**3. What was the first item from the menu purchased by each customer?**
+
+```
+,item_order AS
+	(SELECT customer_id AS customer
+			,product_name AS item_purchased
+	        ,order_date AS date
+	        ,DENSE_RANK() OVER(PARTITION BY customer_id ORDER BY order_date) AS item_order
+	FROM join_sales_menu)
+
+SELECT DISTINCT customer, item_purchased
+FROM item_order
+WHERE item_order = 1
+```
+
+#### Explanation:
+- **item_order**: Create another CTE called `item_order` to rank the item from 1 to end by using `DENSE_RANK()`.
+	- **DENSE_RANK**: Rank the product bought from 1 to end. With 1 is the first dish the customer ordered
+   	- **PARTITION BY**: Divide the result set into partitions based on `customer_id` column and reset the ranking within each partition.
+   	- **ORDER BY**: order the rows within each partition by `order_date` in ascending order
+- **SELECT DISTINCT** & **WHERE**: Select unique `customer_id` and `product_name`, which were renamed to `customer` and `item_purchased` in the above CTE, which meet the criteria in the WHERE clause: item_order = 1
+
+
 
