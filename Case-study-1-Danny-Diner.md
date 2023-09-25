@@ -33,8 +33,9 @@ WITH join_sales_menu AS
 ```
 ### join_sales_menu table:
 
-<img width="956" alt="image" src="https://github.com/han-tran-gia/8-weeks-sql-challenge/assets/144699083/fb14f03a-8a17-4837-ae5c-c956d12c1d30">
+<img src="https://github.com/han-tran-gia/8-weeks-sql-challenge/assets/144699083/fb14f03a-8a17-4837-ae5c-c956d12c1d30"  alt="image" width="956">
 
+<img src="https://user-images.githubusercontent.com/81607668/127727503-9d9e7a25-93cb-4f95-8bd0-20b87cb4b459.png" alt="Image" width="500" height="520">
 
 | customer_id |	order_date | product_id	| product_name | price
 | A |	2021-01-01T00:00:00.000Z | 1 | sushi | 10
