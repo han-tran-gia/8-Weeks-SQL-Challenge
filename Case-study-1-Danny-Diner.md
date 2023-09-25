@@ -22,7 +22,7 @@ Danny intends to utilize the data to address some straightforward inquiries rega
 ## Question & Answers
 - For these 8 case studies, I used [DB Fiddle - PostgreSQL13](https://www.db-fiddle.com/f/2rM8RAnq7h5LLDTzZiRWcd/138) to write and execute the queries, where you can also find the datasets for this case studies. Feel free to join me by clicking to the link above.
 
-- Since there are several questions that need to join the tables, I will create a CTE name `join_sales_menu` and merge `dannys_diner.sales` and `dannys_diner.menu` tables to get the information of `customer_id`, `order_date`, `product_name` and `price` first for later use.
+- Since there are several questions that need to join the tables, I will create a CTE named `join_sales_menu` and merge `dannys_diner.sales` and `dannys_diner.menu` tables to get the information of `customer_id`, `order_date`, `product_name` and `price` first for later use.
 
 ```
 WITH join_sales_menu AS
@@ -44,16 +44,29 @@ FROM join_sales_menu
 GROUP BY customer_id
 ORDER BY customer
 ```
-### EXPLAINATION
+#### Explanation:
 - **GROUP BY**: group the aggregated result by `customer_id`
 - **SUM**: calculate the total amount that each customer spent
 
-### ANSWERS
+#### Answer:
 | customer | total_spend|
 |----------|------------|
 |    A     |	76      |
 |    B     |	74      |
 |    C     |	36      |
 
+- Customer A spent the most out of 3 customers, followed by customer B, with both of them spending twice as much as customer C.
+- Customer A spent $76
+- Customer B spent $74
+- Customer C spent $36
 
+**2. How many days has each customer visited the restaurant?**
+```
+SELECT customer_id AS customer
+		,COUNT(DISTINCT order_date) AS visit_days
+FROM dannys_diner.sales
+GROUP BY customer_id
+ORDER BY customer
+```
+#### Explanation:
 
