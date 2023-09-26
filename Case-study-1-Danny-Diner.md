@@ -4,7 +4,7 @@
 ## Table Of Contents
 - [Problem Statement](#problem-statement)
 - [Entity Relationship Diagram](#entity-relationship-diagram)
-- [Question & Answers](#question-and-answers)
+- [Question & Answers](#question-&-answers)
 
 ***
 
