@@ -2,10 +2,9 @@
 <img src="https://user-images.githubusercontent.com/81607668/127727503-9d9e7a25-93cb-4f95-8bd0-20b87cb4b459.png" alt="Image" width="500" height="520">
 
 ## Table Of Contents
-- [Problem Statement] (#problem_statement)
-- [Entity Relationship Diagram](# entity-relationship-diagram)
-- [Questions & Answers](# questions-&-answers)
-- [Insights & Recommendations](# insights-&-recommendations)
+- [Problem Statement](#problem-statement)
+- [Entity Relationship Diagram](#entity-relationship-diagram)
+- [Question & Answers](#question-and-answers)
 
 ***
 
