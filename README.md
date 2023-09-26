@@ -7,7 +7,7 @@ A special thanks to [Data with Danny](https://8weeksqlchallenge.com/) for creati
 # TABLE OF CONTENT
 Kindly click on the solution links for each case study below:
 
-- Case Study #1: Danny's Diner
+- [Case Study #1: Danny's Diner](https://github.com/han-tran-gia/8-weeks-sql-challenge/blob/3ba988597a5696bcce95d32e0168bdbfdb4bac27/Case-study-1-Danny-Diner.md)
 - Case Study #2: Pizza Runner
 - Case Study #3: Foodie-Fi
 - Case Study #4: Data Bank
