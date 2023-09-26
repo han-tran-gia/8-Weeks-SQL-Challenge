@@ -1,8 +1,7 @@
 # 8 WEEKS SQL CHALLENGE
-This repository contained my solutions for the 8 case studies from the #8WeekSQLChallenge.
+This resipotory comprises my answers to the 8 case studies featured in the #8WeekSQLChallenge. 
 
-It showcases my ability to tackle various SQL challenges and demonstrates my proficiency in SQL query writing and problem-solving skills.
-
+It serves as a testament to my capability in addressing a range of SQL puzzles, underscoring my adeptness in crafting SQL queries and showcasing my problem-solving skill.
 A special thanks to [Data with Danny](https://8weeksqlchallenge.com/) for creating these insightful and engaging SQL case studies! 👋🏻
 
 # TABLE OF CONTENT
