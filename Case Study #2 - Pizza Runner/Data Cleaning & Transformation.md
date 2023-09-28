@@ -1,5 +1,13 @@
 ## Data Cleaning & Transformation
 
+### Table Of Content
+- Table: customer_orders
+- Table: runner_orders
+- Join table: customer_orders_temp & runner_orders_temp
+-  Table: pizza_recipes
+
+***
+
 ### 🔨 Table: customer_orders
 <img width="650" alt="image" src="https://github.com/han-tran-gia/8-weeks-sql-challenge/assets/144699083/92fad897-5ad8-41c1-ad31-0d31dc4e2d1f">
 
