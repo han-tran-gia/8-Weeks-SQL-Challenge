@@ -24,4 +24,4 @@ He recruited delivery "runners" and invested in building the app, even maxing ou
 ## Entity Relationship Diagram
 ![Pizza Runner](https://github.com/katiehuangx/8-Week-SQL-Challenge/assets/81607668/78099a4e-4d0e-421f-a560-b72e4321f530)
 
-Click here for solution to Data Cleaning and Transformation
+Click [here](Case Study #2 - Pizza Runner/Data Cleaning & Transformation.md) for solution to Data Cleaning and Transformation
