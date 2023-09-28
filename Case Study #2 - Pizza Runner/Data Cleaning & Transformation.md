@@ -98,7 +98,15 @@ Since there are several questions that need to join the tables, I will:
 
 ```
 WITH orders AS
-(SELECT order_id, customer_id, pizza_id, exclusions, extras, order_time, runner_id
+(SELECT order_id, customer_id, pizza_id
+ 		,CASE
+	  WHEN exclusions IS null OR exclusions = 'null' THEN ''
+	  ELSE exclusions END AS exclusions
+  		,CASE
+	  WHEN extras IS NULL or extras = 'null' THEN ''
+	  ELSE extras END AS extras
+ 		, order_time
+ 		, runner_id
 		,CAST(pickup_time AS timestamp)
         ,CAST(distance	AS NUMERIC) 
         ,CAST(duration AS INT)
