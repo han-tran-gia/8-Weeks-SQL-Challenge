@@ -51,9 +51,9 @@ GROUP BY customer_id
 ORDER BY customer
 ```
 
-#### Explanation:
+<!--#### Explanation:
 - **GROUP BY**: Group the aggregated result by `customer_id`
-- **SUM**: Calculate the total amount that each customer spent
+- **SUM**: Calculate the total amount that each customer spent-->
 
 #### Answer:
 |customer |total_spend|
@@ -147,10 +147,10 @@ ORDER BY item_count DESC
 LIMIT 1
 ```
 
-#### Explanation:
+<!--#### Explanation:
 - **GROUP BY**: Group the products by name by using `product_name` column
 - **COUNT**: Count the number of products were purchased by using `product_name` and renamed to `item_count` by using AS clause
-- **ORDER BY**: Order the result on the `item_count` column in descending order and just take the 1st result - highest number of purchased items - appears by using **LIMIT**
+- **ORDER BY**: Order the result on the `item_count` column in descending order and just take the 1st result - highest number of purchased items - appears by using **LIMIT**-->
 
 #### Answer:
 |item|item_count|
@@ -266,7 +266,7 @@ ORDER BY customer
 #### Explanation:
 - **non_mem_date**: Create a CTE called `non_mem_date` to join 2 tables `dannys_diner.sales` and `dannys_diner.members` on the `customer_id`
 	- Select approriate columns and rank them from 1 to end the partition by using **DENSE_RANK**. With 1 is the last order the customer made right before they bacame a member of the restaurant.
-	- **WHERE order_date < join_date**The selected rows must meet the criteria in **WHERE** claue: order_date < join_date, which means the order must be made **before** the date the customers become a member at the restaurant. If the customer became the member and ordered a dish on the same date, in this case, that order will be considered as making after the customer became the member.
+	- **WHERE order_date < join_date**: The selected rows must meet the criteria in **WHERE** claue: order_date < join_date, which means the order must be made **before** the date the customers become a member at the restaurant. If the customer became the member and ordered a dish on the same date, in this case, that order will be considered as making after the customer became the member.
 	- **PARTITION BY**: Divide the data by `members.customer_id`
 	- **ORDER BY**: Order the rows within each `dannys_diner.sales.customer_id` partition by `order_date`
 - In the outer query: Join the CTE `non_mem_date` with `dannys_diner.menu` table on `product_id`
@@ -345,9 +345,6 @@ ORDER BY customer
 - **CASE WHEN**: From this scenario, I used CASE WHEN to perform the calculation:
 	- **product_name = 'sushi'**: if the product is sushi, then the customer will get 2 * 10 = 20 points
  	- Otherwise, they will get 10 points for the remaining items
-- **SUM**: calculate the total of points each customer received
-- **GROUP BY**: Group the records by `customer_id`
-- **ORDER BY**: Order the results by `customer` in ascending order
 
 #### Answer:
 |customer|point|
