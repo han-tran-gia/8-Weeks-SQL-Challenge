@@ -100,7 +100,7 @@ LEFT JOIN runner_orders_temp
 	USING (order_id)
 WHERE distance != '')
 ```
-#### orders table
+#### orders table:
 <img width="909" alt="image" src="https://github.com/han-tran-gia/8-weeks-sql-challenge/assets/144699083/202afbb5-b03c-4f5f-b640-47ddebc0cd4f">
 
 ***
@@ -108,6 +108,20 @@ WHERE distance != '')
 ### 🔨 Table: pizza_recipes
 <img width="190" alt="image" src="https://github.com/han-tran-gia/8-weeks-sql-challenge/assets/144699083/d269db15-3991-42e8-941d-5aaca106ac7d">
 
+#### Observations & Ways forward:
+- Observations:
+  - `toppings`: the topping_id in this column is not separated into different celss
+- Ways foward:
+  - Create a CTE and split the data into rows
 
+```
+,topping_list AS
+(SELECT pizza_id
+	,CAST(UNNEST(string_to_array(toppings, ', ')) AS INT) AS topping_id
+FROM pizza_runner.pizza_recipes)
+```
+#### topping_list table:
+<img width="520" alt="image" src="https://github.com/han-tran-gia/8-weeks-sql-challenge/assets/144699083/aea8062a-8e33-471a-a399-56bd0cef2184">
 
+Click here for [solution](https://github.com/han-tran-gia/8-weeks-sql-challenge/blob/main/Case%20Study%20%232%20-%20Pizza%20Runner/A.%20Pizza%20Metrics.md) to **A. Pizza Metrics**!
 
