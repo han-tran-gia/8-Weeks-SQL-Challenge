@@ -24,6 +24,7 @@ His objective is to leverage these insights to make informed decisions regarding
 ## Question & Answers
 - For these 8 case studies, I used [DB Fiddle - PostgreSQL13](https://www.db-fiddle.com/f/2rM8RAnq7h5LLDTzZiRWcd/138) to write and execute the queries, where you can also find the datasets for this case studies. Feel free to join me by clicking to the link above.
 
+### 🔨 Join table: dannys_diner.sales and dannys_diner.menu
 - Since there are several questions that need to join the tables, I will create a CTE named `join_sales_menu` and merge `dannys_diner.sales` and `dannys_diner.menu` tables to get the information of `customer_id`, `order_date`, `product_name` and `price` first for later use.
 
 ```
