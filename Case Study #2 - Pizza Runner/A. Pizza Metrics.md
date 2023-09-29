@@ -164,6 +164,50 @@ SELECT SUM(CASE
          AS both_excl_extra_pizza_count
 FROM orders
 ```
-#### Answer:
-![image](https://github.com/han-tran-gia/8-weeks-sql-challenge/assets/144699083/753dffe8-cc5b-4cda-bc7d-6fc06c36ddea)
+#### Explanation:
+- The question is asking the number of pizza were delivered so I will use orders table which has been excluded cancelled orders
 
+#### Answer:
+![image](https://github.com/han-tran-gia/8-weeks-sql-challenge/assets/144699083/25fbbe1c-09d5-4124-9e6c-80ac18efacc7)
+
+There is only 1 pizza was delivered that had both exclusions and extras
+
+***
+
+### 9. What was the total volume of pizzas ordered for each hour of the day?
+```
+SELECT EXTRACT(HOUR FROM order_time) AS hour_time
+	,COUNT(pizza_id) AS pizza_count
+FROM customer_orders_temp
+GROUP BY EXTRACT(HOUR FROM order_time)
+ORDER BY hour_time
+```
+
+#### Explanation:
+- The question is asking the number of pizza were ordered so I will use customer_orders_temp table which included all orders regardless cancel or not
+
+#### Answer:
+![image](https://github.com/han-tran-gia/8-weeks-sql-challenge/assets/144699083/ead265f7-6917-4bc1-89b3-bb7b6059afde)
+
+- At 11AM and 19PM: There was 1 pizza was ordered
+- At 13PM, 18PM,21PM and 23PM: There were 3 pizzas were ordered
+
+***
+### 10. What was the volume of orders for each day of the week?
+```
+SELECT TO_CHAR(order_time, 'DAY') AS day_of_week
+	,COUNT(order_id) AS order_count
+FROM customer_orders_temp
+GROUP BY TO_CHAR(order_time, 'DAY')
+ORDER BY order_count
+```
+#### Explanation:
+- **TO_CHAR**: Get the name of the day of the week
+- The question is asking the number of pizza were ordered so I will use customer_orders_temp table which included all orders regardless cancel or not
+
+#### Answer:
+![image](https://github.com/han-tran-gia/8-weeks-sql-challenge/assets/144699083/212821ac-afdd-42c4-8505-89ff0156f94f)
+
+- On Wednesday and Saturday, the restaurant received the highest number of orders: 5
+- Thursday: the restaurant received 3 orders
+- Friday: the restaurant received 1 order
