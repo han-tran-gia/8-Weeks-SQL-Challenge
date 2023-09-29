@@ -141,7 +141,7 @@ ORDER BY customer_id
 ```
 #### Explanation:
 - For `delivered pizza` -> I will use orders table which has been exclude cancelled orders
-- For `at least 1 change`: which means we need to count both situation which are: customers add extras or exclude any toppings from the pizza
+- For `at least 1 change`: which means we need to count both situations: customers add extras or exclude any toppings from the pizza
 - **CASE WHEN**: I used 2 CASE WHEN to calculate the number of no change and at least 1 change pizza
   - If `exclusions` and `extras` columns are blank, which means no toppings are added or excluded from the pizza, 1 will be added and later sum all of that to calculate no_change_pizza count
   - If these columns are NOT blank, which means at least 1 topping will be added or excluded from the pizza, 1 will be added and later sum all of that to calculate at_least_1change count
@@ -164,3 +164,6 @@ SELECT SUM(CASE
          AS both_excl_extra_pizza_count
 FROM orders
 ```
+#### Answer:
+![image](https://github.com/han-tran-gia/8-weeks-sql-challenge/assets/144699083/753dffe8-cc5b-4cda-bc7d-6fc06c36ddea)
+
