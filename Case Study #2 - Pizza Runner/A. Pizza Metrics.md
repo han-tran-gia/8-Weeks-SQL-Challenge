@@ -212,4 +212,4 @@ ORDER BY order_count
 - Thursday: the restaurant received 3 orders
 - Friday: the restaurant received 1 order
 
-Click [here]() for solution to B. Runner and Customer Experience
+Click [here](https://github.com/han-tran-gia/8-weeks-sql-challenge/blob/main/Case%20Study%20%232%20-%20Pizza%20Runner/B.%20Runner%20and%20Customer%20Experience.md) for solution to B. Runner and Customer Experience
