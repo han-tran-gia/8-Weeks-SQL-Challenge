@@ -211,3 +211,5 @@ ORDER BY order_count
 - On Wednesday and Saturday, the restaurant received the highest number of orders: 5
 - Thursday: the restaurant received 3 orders
 - Friday: the restaurant received 1 order
+
+Click [here]() for solution to B. Runner and Customer Experience
