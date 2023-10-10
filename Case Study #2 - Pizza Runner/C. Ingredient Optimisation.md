@@ -86,3 +86,4 @@ ORDER BY exclusions_count
 - Meat Lovers - Extra Bacon
 - Meat Lovers - Exclude Cheese, Bacon - Extra Mushroom, Peppers
 
+https://github.com/han-tran-gia/8-weeks-sql-challenge/blob/main/Case%20Study%20%232%20-%20Pizza%20Runner/D.%20Pricing%20and%20Ratings.md
