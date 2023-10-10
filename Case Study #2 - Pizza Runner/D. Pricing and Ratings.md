@@ -13,6 +13,7 @@ FROM orders
 #### Answer:
 ![image](https://github.com/han-tran-gia/8-weeks-sql-challenge/assets/144699083/2e9cb0fc-ee97-40d1-9def-e4c7deba389d)
 
+- Pizza Runner made $138.
 ***
 
 ### 2. What if there was an additional $1 charge for any pizza extras?
@@ -103,4 +104,26 @@ GROUP BY customer_id, order_id, runner_id, rating, order_time, pickup_time, dura
 ORDER BY order_id
 ```
 
+#### Answer:
+![image](https://github.com/han-tran-gia/8-weeks-sql-challenge/assets/144699083/c69e8bce-0400-46a3-866b-f30bc74aae9c)
 
+***
+
+### 5. If a Meat Lovers pizza was $12 and Vegetarian $10 fixed prices with no cost for extras and each runner is paid $0.30 per kilometre traveled - how much money does Pizza Runner have left over after these deliveries?
+```
+,pricing AS
+(SELECT order_id,
+	SUM(CASE
+        	WHEN pizza_id = 1 THEN 12
+            	ELSE 10 END) AS pizza_price
+       ,distance * 0.3 AS distance_cost
+FROM orders
+GROUP BY order_id, distance)
+
+SELECT SUM(pizza_price - distance_cost) AS total
+FROM pricing
+```
+### Answer:
+![image](https://github.com/han-tran-gia/8-weeks-sql-challenge/assets/144699083/6625fbf5-d102-49bb-b601-c7cdcdb4b2cd)
+
+- Pizza Runner will have $94.44 left
